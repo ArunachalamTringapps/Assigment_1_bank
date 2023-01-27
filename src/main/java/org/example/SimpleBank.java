@@ -6,7 +6,7 @@ class SimpleBank {
     private final int accno;
     private double bal;
     static Scanner sc = new Scanner(System.in);
-    Logger l=Logger.getLogger("com.api.jar");
+    static Logger l=Logger.getLogger("com.api.jar");
 
     SimpleBank() {
         l.info("Enter the customer name:");
@@ -48,7 +48,6 @@ class SimpleBank {
     }
 
     public static void main(String[] args) {
-        Logger l=Logger.getLogger("com.api.jar");
         l.info("Welcome to TMB bank");
         l.info("What we want to do");
         SimpleBank s = new SimpleBank();
