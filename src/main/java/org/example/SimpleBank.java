@@ -63,7 +63,7 @@ class SimpleBank {
                 case 2 -> s.withdraw();
                 case 3 -> {
                     double te = s.balance();
-                    l.info("Your account balance is:" + te);
+                    l.log(Level.INFO, () -> "Your Account balance:" + te);
                 }
                 default -> l.info("Thanks for the coming");
 
