@@ -1,68 +1,71 @@
 package org.example;
 import java.util.*;
+import java.util.logging.*;
 class SimpleBank {
     private final String name;
     private final int accno;
     private double bal;
     static Scanner sc = new Scanner(System.in);
+    Logger l=Logger.getLogger("com.api.jar");
 
     SimpleBank() {
-        System.out.println("Enter the customer name:");
+        l.info("Enter the customer name:");
 
         this.name = sc.nextLine();
-        System.out.println("Enter customer account number:");
+        l.info("Enter customer account number:");
         this.accno = sc.nextInt();
-        System.out.println("Enter the current balance");
+        l.info("Enter the current balance");
         this.bal = sc.nextDouble();
 
     }
 
     public void deposite() {
         double d;
-        System.out.println("Enter the deposite amount");
+        l.info("Enter the deposite amount");
         d = sc.nextDouble();
         this.bal += d;
-        System.out.println("Your amount is deposited successfully");
+        l.info("Your amount is deposited successfully");
 
     }
 
     public void withdraw() {
         double w;
-        System.out.println("Enter the withdraw amount:");
+        l.info("Enter the withdraw amount:");
         w = sc.nextDouble();
         if (w <= this.bal) {
             this.bal = this.bal - w;
-            System.out.println("your amount is withdraw successfully");
+            l.info("your amount is withdraw successfully");
         } else {
-            System.out.println("Sorry you have insufficient amount in your account");
+            l.info("Sorry you have insufficient amount in your account");
         }
     }
 
     public double balance() {
-        System.out.println("Name:" + this.name);
-        System.out.println("Account number" + this.accno);
+        l.log(Level.INFO, () -> "Name:" +this.name);
+        l.log(Level.INFO, () -> "Account number:" +this.accno);
         return this.bal;
 
     }
 
     public static void main(String[] args) {
-        System.out.println("Welcome to TMB bank");
-        System.out.println("What we want to do");
+        Logger l=Logger.getLogger("com.api.jar");
+        l.info("Welcome to TMB bank");
+        l.info("What we want to do");
         SimpleBank s = new SimpleBank();
 
         int n;
         do {
-            System.out.println("Enter your choice:");
-            System.out.println("1.deposite\n2.withdraw\n3.balance\n4.exit");
+            l.info("Enter your choice:");
+            l.info("1.deposite\n2.withdraw\n3.balance\n4.exit");
             n = sc.nextInt();
             switch (n) {
                 case 1 -> s.deposite();
                 case 2 -> s.withdraw();
                 case 3 -> {
                     double te = s.balance();
-                    System.out.println("Your account balance is:" + te);
+                    l.info("Your account balance is:" + te);
                 }
-                default -> System.out.println("Thanks for the coming");
+                default -> l.info("Thanks for the coming");
 
             }
 
