@@ -2,6 +2,7 @@ package org.example;
 import java.util.*;
 import java.util.logging.*;
 class SimpleBank {
+
     private final String name;
     private final int accno;
     private double bal;
@@ -48,28 +49,32 @@ class SimpleBank {
     }
 
     public static void main(String[] args) {
-        l.info("Welcome to TMB bank");
-        l.info("What we want to do");
-        SimpleBank s = new SimpleBank();
+        try {
+            l.info("Welcome to TMB bank");
+            l.info("What we want to do");
+            SimpleBank s = new SimpleBank();
 
-        int n;
-        do {
-            l.info("Enter your choice:");
-            l.info("1.deposite\n2.withdraw\n3.balance\n4.exit");
-            n = sc.nextInt();
-            switch (n) {
-                case 1 -> s.deposite();
-                case 2 -> s.withdraw();
-                case 3 -> {
-                    double te = s.balance();
-                    l.log(Level.INFO, () -> "Your Account balance:" + te);
+            int n;
+            do {
+                l.info("Enter your choice:");
+                l.info("1.deposite\n2.withdraw\n3.balance\n4.exit");
+                n = sc.nextInt();
+                switch (n) {
+                    case 1 -> s.deposite();
+                    case 2 -> s.withdraw();
+                    case 3 -> {
+                        double te = s.balance();
+                        l.log(Level.INFO, () -> "Your Account balance:" + te);
+                    }
+                    default -> l.info("Thanks for the coming");
+
                 }
-                default -> l.info("Thanks for the coming");
 
-            }
-
-        } while (n != 4);
-
-        sc.close();
+            } while (n > 4);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            sc.close();
+        }
     }
 }
