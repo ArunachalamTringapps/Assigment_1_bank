@@ -72,7 +72,7 @@ class SimpleBank {
 
             } while (n > 4);
         }catch (Exception ex){
-            ex.printStackTrace();
+            l.log(Level.INFO,()->"Error Occur:"+ex);
         }finally {
             sc.close();
         }
