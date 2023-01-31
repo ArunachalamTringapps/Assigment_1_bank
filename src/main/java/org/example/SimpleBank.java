@@ -49,7 +49,7 @@ class SimpleBank {
     }
 
     public static void main(String[] args) {
-        try {
+
             l.info("Welcome to TMB bank");
             l.info("What we want to do");
             SimpleBank s = new SimpleBank();
@@ -71,10 +71,6 @@ class SimpleBank {
                 }
 
             } while (n > 4);
-        }catch (Exception ex){
-            l.log(Level.INFO,()->"Error Occur:"+ex);
-        }finally {
-            sc.close();
-        }
+
     }
 }
