@@ -71,6 +71,6 @@ class SimpleBank {
                 }
 
             } while (n > 4);
-
+            sc.close();
     }
 }
