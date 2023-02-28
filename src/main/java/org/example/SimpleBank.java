@@ -7,7 +7,7 @@ class SimpleBank {
     private final int accno;
     private double bal;
     static Scanner sc = new Scanner(System.in);
-    static Logger l=Logger.getLogger("com.api.jar");
+    static Logger l=Logger.getLogger(SimpleBank.class.getName());
 
     SimpleBank() {
         l.info("Enter the customer name:");
